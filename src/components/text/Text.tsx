@@ -1,51 +1,50 @@
-import { JSX } from "react";
-
-// Server Component
+// src/app/components/text/Text.tsx
 type TextProps = {
-  /** Ruta del nodo en AEM; acepta "urn:aemconnection:..." o ruta JCR absoluta */
+  /** Nodo JCR que edita este componente (puede venir como ruta o como urn:aemconnection:...) */
   path: string;
-  /** Contenido de texto (lo que llega del Page JSON o del mapper) */
-  text?: string;
-  /** Etiqueta HTML a usar */
+  /** Nombre de la propiedad que editará el UE (por defecto "text") */
+  prop?: string;
+  /** Valor inicial (lo que pintas en pantalla) */
+  value?: string;
+  /** p, h1, h2... */
   tag?: keyof JSX.IntrinsicElements;
-  /** Clases opcionales */
-  className?: string;
-  /** Si el campo es rich text */
+  /** ¿El campo es rich text (HTML)? */
   rich?: boolean;
+  className?: string;
 };
 
-function toAueResource(path: string) {
+function toAue(path: string) {
   return path.startsWith("urn:") ? path : `urn:aemconnection:${path}`;
 }
 
 export default function Text({
   path,
-  text = "",
+  prop = "text",
+  value = "",
   tag: Tag = "p",
-  className = "",
   rich = false,
+  className = "",
 }: TextProps) {
-  const aueResource = toAueResource(path);
+  const resource = toAue(path);
 
   return (
     <Tag
-      data-aue-resource={aueResource}
+      data-aue-resource={resource}  
       data-aue-type="component"
       data-aue-label="Text"
       className={className}
     >
       {rich ? (
         <span
-          data-aue-prop="text"
+          data-aue-prop={prop}   
           data-aue-type="richtext"
-          dangerouslySetInnerHTML={{ __html: text }}
+          dangerouslySetInnerHTML={{ __html: value }}
         />
       ) : (
-        <span data-aue-prop="text" data-aue-type="text">
-          {text}
+        <span data-aue-prop={prop} data-aue-type="text">
+          {value}
         </span>
       )}
     </Tag>
   );
 }
-

@@ -14,26 +14,16 @@ type SearchParams =
   | Record<string, string[]>
   | undefined;
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams>;
-}) {
-  // ⬇️ esperar a searchParams
-  const sp = (await searchParams) ?? {};
-  const raw = Array.isArray(sp?.["login-token"])
-    ? sp?.["login-token"][0]
-    : (sp?.["login-token"] as string | undefined);
-
-  // ⬇️ cookies() también es async en Next 15
-  const cookieStore = await cookies();
-  const loginToken = raw || cookieStore.get("aem_login_token")?.value;
-
-  const value = await readNodePropFromAuthor(TEXT_NODE, "text", loginToken);
-
+export default async function Page() {
+  const NODE = "/content/wknd/us/en/test_headless/jcr:content/root/container/container/text";
   return (
-    <main className="p-6">
-      <Text path={`urn:aemconnection:${TEXT_NODE}`} text={value} tag="p" />
+    <main 
+    data-aue-type="container"
+    data-aue-label="Container"
+    data-aue-filter="container-filter"
+    data-aue-resource="urn:aemconnection:/content/wknd/us/en/test_headless/jcr:content/root/container/container"
+    >
+       <Text path={NODE} value="Texto inicial (se reemplazará al guardar)" />
     </main>
   );
 }

@@ -19,7 +19,7 @@ export default async function Page() {
         data-aue-type="container"
         data-aue-label="Container"
         data-aue-filter="container-filter"
-        data-aue-resource={`urn:aemconnection:${process.env.NEXT_PUBLIC_AEM_PATH_PREFIX}/${/* slug/ruta de página */ ""}/jcr:content/root/container/container`}
+        data-aue-resource={`urn:aemconnection:${process.env.AEM_HOST}/${/* slug/ruta de página */ ""}/jcr:content/root/container/container`}
       >
         {/* aquí renderizas tus componentes editables con UE */}
       </main>

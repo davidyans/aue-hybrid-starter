@@ -41,9 +41,9 @@ export function sanitizeXfHtml(html: string): string {
 }
 
 export async function readNodePropFromAuthor(path: string, prop: string, loginToken?: string) {
-  const base = process.env.NEXT_PUBLIC_AEM_AUTHOR_URL!; // https://author-xxx.adobeaemcloud.com
+  const base = process.env.AEM_HOST!; // https://author-xxx.adobeaemcloud.com
   // Intentamos leer el nodo como JSON del Sling GET: .../text.json
-  const url = new URL(`${base}${path}.json`);
+  const url = new URL(`${base}${path}`);
   if (loginToken) url.searchParams.set("login-token", loginToken);
 
   const res = await fetch(url.toString(), { cache: "no-store" });

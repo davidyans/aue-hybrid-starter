@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Head from "next/head";
 
 export default function EditorScripts() {
   // Paleta de componentes del UE
@@ -14,8 +15,7 @@ export default function EditorScripts() {
             plugins: {
               aem: {
                 page: {
-                  // resourceType que se creará en el JCR al "Add"
-                  resourceType: "aue/components/text",
+                  resourceType: "aue/components/text", // resourceType del nodo que se creará
                 },
               },
             },
@@ -42,15 +42,10 @@ export default function EditorScripts() {
 
   return (
     <>
-      {/* librería del UE */}
-      <Script
-        src="https://universal-editor-service.adobe.io/cors.js"
-        strategy="beforeInteractive"
-      />
       {/* conexión a tu Author y preview origin */}
       <meta
         name="urn:adobe:aue:system:aemconnection"
-        content={`aem:${process.env.NEXT_PUBLIC_AEM_HOST ?? ""}`}
+        content={`aem:${process.env.AEM_HOST ?? ""}`}
       />
       <meta
         name="urn:adobe:aue:config:preview"
