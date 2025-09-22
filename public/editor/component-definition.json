@@ -1,0 +1,15 @@
+{
+  "groups": [
+    {
+      "title": "Components",
+      "id": "general",
+      "components": [
+        {
+          "title": "Text",
+          "id": "text",
+          "plugins": { "aem": { "page": { "resourceType": "aue/components/text" } } }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+[
+    {
+      "id": "text",
+      "fields": [{ "component": "text", "name": "text", "label": "Text", "valueType": "string" }]
+    }
+]

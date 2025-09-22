@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 "use client";
 
 import { Helmet } from "react-helmet-async";
@@ -30,24 +31,21 @@ export default function EditorScripts() {
 
   return (
     <Helmet>
-      <script src="https://universal-editor-service.experiencecloud.live/corslib/LATEST" async />
+       <script src="https://universal-editor-service.adobe.io/cors.js" async></script>
       <meta name="urn:adobe:aue:system:aemconnection" content="aem:https://localhost:8443" />
-      <meta name="urn:adobe:aue:config:service" content="https://localhost:8000" />
+      {<meta name="urn:adobe:aue:config:service" content="https://localhost:8000" />}
       <script
-        id="aue-component-json"
         type="application/vnd.adobe.aue.component+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(componentJson) }}
-      />
+        src="/editor/component-definition.json"
+      ></script>
       <script
-        id="aue-model-json"
         type="application/vnd.adobe.aue.model+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(modelJson) }}
-      />
+        src="/editor/model-definition.json"
+      ></script>
       <script
-        id="aue-filter-json"
         type="application/vnd.adobe.aue.filter+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(containerFilterJson) }}
-      />
+        src="/editor/filter-definition.json"
+      ></script>
     </Helmet>
   );
 }
