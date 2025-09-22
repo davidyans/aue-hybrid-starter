@@ -4,31 +4,6 @@
 import { Helmet } from "react-helmet-async";
 
 export default function EditorScripts() {
-  const componentJson = {
-    groups: [
-      {
-        title: "Components",
-        id: "general",
-        components: [
-          {
-            title: "Text",
-            id: "text",
-            plugins: { aem: { page: { resourceType: "aue/components/text" } } },
-          },
-        ],
-      },
-    ],
-  };
-
-  const modelJson = [
-    {
-      id: "text",
-      fields: [{ component: "text", name: "text", label: "Text", valueType: "string" }],
-    },
-  ];
-
-  const containerFilterJson = [{ id: "container-filter", components: ["text"] }];
-
   return (
     <Helmet>
        <script src="https://universal-editor-service.adobe.io/cors.js" async></script>

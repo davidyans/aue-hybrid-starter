@@ -7,7 +7,16 @@
         {
           "title": "Text",
           "id": "text",
-          "plugins": { "aem": { "page": { "resourceType": "aue/components/text" } } }
+          "plugins": {
+            "aem": { "page": { "resourceType": "wknd/components/text" } }
+          }
+        },
+        {
+          "title": "Image",
+          "id": "image",
+          "plugins": {
+            "aem": { "page": { "resourceType": "wknd/components/image" } }
+          }
         }
       ]
     }

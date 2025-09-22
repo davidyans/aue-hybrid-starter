@@ -2,6 +2,7 @@ type Props = {
   path: string;
   html: string;
   id?: string;
+  node?: any; // opcional
 };
 
 export default function Text({ path, html, id }: Props) {
