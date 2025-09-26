@@ -30,7 +30,7 @@ export default function TextCF({ item, as = "div", label = "Text CF" }: Props) {
           data-aue-prop="text"
           data-aue-type="richtext"
           data-aue-label="text"
-          dangerouslySetInnerHTML={{ __html: html }}
+          dangerouslySetInnerHTML={{ __html: (item.text?.html ?? "").trim() }}
         />
       ) : (
         <Tag
