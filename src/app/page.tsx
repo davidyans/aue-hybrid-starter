@@ -1,12 +1,14 @@
-import Container from "@/components/Container";
+import TextCF from "@/components/TextCF";
+import { fetchAllTexts } from "@/lib/aem-graphql";
 
-const ROOT_CONTAINER_JCR_PATH =
-  "/content/wknd/us/en/test_headless/jcr:content/root/container";
+export default async function Page() {
+  const items = await fetchAllTexts();
 
-export default function Page() {
   return (
-    <main style={{ padding: 24 }}>
-      <Container path={ROOT_CONTAINER_JCR_PATH} />
+    <main style={{ padding: 24, display: "grid", gap: 16 }}>
+      {items.map((it) => (
+        <TextCF key={it._path} item={it} as="p" />
+      ))}
     </main>
   );
 }
