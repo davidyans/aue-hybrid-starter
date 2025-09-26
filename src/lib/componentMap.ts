@@ -1,4 +1,4 @@
-import Text from "@/components/Text";
+import Text from "@/components/TextCF";
 import Image from "@/components/Image";
 import Unknown from "@/components/Unknown";
 
