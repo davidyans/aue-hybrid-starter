@@ -11,15 +11,15 @@ export default function EditorScripts() {
       {<meta name="urn:adobe:aue:config:service" content="https://localhost:8000" />}
       <script
         type="application/vnd.adobe.aue.component+json"
-        src="/editor/component-definition.json"
+        src="/editor/component-definition.json?v=4"
       ></script>
       <script
         type="application/vnd.adobe.aue.model+json"
-        src="/editor/model-definition.json"
+        src="/editor/model-definition.json?v=4"
       ></script>
       <script
         type="application/vnd.adobe.aue.filter+json"
-        src="/editor/filter-definition.json"
+        src="/editor/filter-definition.json?v=4"
       ></script>
     </Helmet>
   );

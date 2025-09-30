@@ -17,34 +17,48 @@ function buildAuthHeader(): string | undefined {
   return undefined;
 }
 
-export type TextCF = {
-  _id: string;
-  _path: string; // /content/dam/wknd/cfs/text-1-test
-  text?: {
-    html?: string;
-    markdown?: string;
-    plaintext?: string;
-    json?: unknown;
-  };
+// ----- Tipos base
+export type BaseCF = { _path: string; __typename: string };
+
+export type TextCF = BaseCF & {
+  __typename: "TextModel";
+  text?: { html?: string; plaintext?: string };
 };
 
-export async function fetchAllTexts(): Promise<TextCF[]> {
-  const url = `${AEM_HOST}/graphql/execute.json/wknd/getAllTexts`;
-  const headers: Record<string, string> = { Accept: "application/json" };
+export type ImageWithTextCF = BaseCF & {
+  __typename: "ImageWithTextModel";
+  imagePath?: { _path?: string; width?: number; height?: number; mimeType?: string };
+  altText?: string;
+};
+
+export type ComponentItem = TextCF | ImageWithTextCF | BaseCF;
+// ----- Persisted query: getComponentListByPath
+export async function fetchComponentListItems(listPath: string): Promise<ComponentItem[]> {
+  const url = `${AEM_HOST}/graphql/execute.json/wknd/getComponentListByPath`;
+  const headers: Record<string, string> = {
+    Accept: "application/json",
+    "Content-Type": "application/json"
+  };
   const auth = buildAuthHeader();
   if (auth) headers["Authorization"] = auth;
 
   const res = await fetch(url, {
+    method: "POST",
     headers,
-    cache: "no-store",
+    body: JSON.stringify({ variables: { path: listPath } }),
     // @ts-expect-error Node fetch acepta agent
     agent: insecureAgent,
+    cache: "no-store"
   });
 
-  if (!res.ok) {
-    throw new Error(`GraphQL fetch failed ${res.status} for ${url}`);
-  }
+  if (!res.ok) throw new Error(`GraphQL fetch failed ${res.status} for ${url}`);
 
   const json = await res.json();
-  return json?.data?.textModelList?.items ?? [];
+  
+  const items: ComponentItem[] =
+    json?.data?.componentListByPath?.item?.items
+    ?? json?.data?.component_listByPath?.items
+    ?? [];
+
+  return items;
 }

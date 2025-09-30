@@ -1,14 +1,18 @@
-import TextCF from "@/components/TextCF";
-import { fetchAllTexts } from "@/lib/aem-graphql";
+import ContainerCF from "@/components/ContainerCF";
+import RenderSwitch from "@/components/RenderSwitch";
+import { fetchComponentListItems } from "@/lib/aem-graphql";
 
 export default async function Page() {
-  const items = await fetchAllTexts();
+  const listPath = "/content/dam/wknd/cfs/component-list-1";
+  const items = await fetchComponentListItems(listPath);
 
   return (
-    <main style={{ padding: 24, display: "grid", gap: 16 }}>
-      {items.map((it) => (
-        <TextCF key={it._path} item={it} as="p" />
-      ))}
+    <main data-aue-model="page" style={{ padding: 24 }}>
+      <ContainerCF listPath={listPath} filterId="cf-components" label="Main container">
+        {items.map((it) => (
+          <RenderSwitch key={it._path} item={it} />
+        ))}
+      </ContainerCF>
     </main>
   );
 }

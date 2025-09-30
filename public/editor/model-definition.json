@@ -1,6 +1,15 @@
 [
-    {
-      "id": "text",
-      "fields": [{ "component": "text", "name": "text", "label": "Text", "valueType": "string" }]
-    }
+  {
+    "id": "textcf",
+    "fields": [
+      { "component": "richtext", "name": "text", "label": "Text" }
+    ]
+  },
+  {
+    "id": "imagewithtextcf",
+    "fields": [
+      { "component": "reference", "name": "imagePath", "label": "Image Path" },
+      { "component": "text", "name": "altText", "label": "Alt Text" }
+    ]
+  }
 ]

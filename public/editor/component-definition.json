@@ -2,20 +2,38 @@
   "groups": [
     {
       "title": "Components",
-      "id": "general",
+      "id": "cf",
       "components": [
         {
-          "title": "Text",
-          "id": "text",
+          "title": "Text (CF)",
+          "id": "textcf",
+          "model": "textcf",
           "plugins": {
-            "aem": { "page": { "resourceType": "wknd/components/text" } }
+            "aem": {
+              "cf": {
+                "cfModel": "/conf/wknd/settings/dam/cfm/models/text-model",
+                "cfFolder": "/content/dam/wknd/cfs",
+                "name": "text-cf",
+                "title": "New Text",
+                "template": { "text": "Lorem ipsum..." }
+              }
+            }
           }
         },
         {
-          "title": "Image",
-          "id": "image",
+          "title": "Image with Text (CF)",
+          "id": "imagewithtextcf",
+          "model": "imagewithtextcf",
           "plugins": {
-            "aem": { "page": { "resourceType": "wknd/components/image" } }
+            "aem": {
+              "cf": {
+                "cfModel": "/conf/wknd/settings/dam/cfm/models/image-with-text-model",
+                "cfFolder": "/content/dam/wknd/cfs",
+                "name": "imagewithtext-cf",
+                "title": "New Image with Text",
+                "template": { "altText": "" }
+              }
+            }
           }
         }
       ]
