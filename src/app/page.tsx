@@ -1,10 +1,16 @@
 import ContainerCF from "@/components/ContainerCF";
 import RenderSwitch from "@/components/RenderSwitch";
-import { fetchComponentListItems } from "@/lib/aem-graphql";
+import { fetchComponentListItems } from "@/services/graphql";
 
 export default async function Page() {
-  const listPath = "/content/dam/wknd/cfs/component-list-1";
-  const items = await fetchComponentListItems(listPath);
+  const listPath = '/content/dam/oshynsite-headless/cfs/component-list-1';
+
+  let items = [];
+  try {
+    items = await fetchComponentListItems(listPath);
+  } catch (err) {
+    console.error('AEM fetch error:', err);
+  }
 
   return (
     <main data-aue-model="page" style={{ padding: 24 }}>

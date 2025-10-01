@@ -11,8 +11,8 @@
           "plugins": {
             "aem": {
               "cf": {
-                "cfModel": "/conf/wknd/settings/dam/cfm/models/text-model",
-                "cfFolder": "/content/dam/wknd/cfs",
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/text",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
                 "name": "text-cf",
                 "title": "New Text",
                 "template": { "text": "Lorem ipsum..." }
@@ -27,8 +27,8 @@
           "plugins": {
             "aem": {
               "cf": {
-                "cfModel": "/conf/wknd/settings/dam/cfm/models/image-with-text-model",
-                "cfFolder": "/content/dam/wknd/cfs",
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/image-with-text",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
                 "name": "imagewithtext-cf",
                 "title": "New Image with Text",
                 "template": { "altText": "" }

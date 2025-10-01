@@ -6,8 +6,11 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
-          { key: 'Content-Security-Policy',
-            value: "frame-ancestors 'self' https://experience.adobe.com https://*.adobe.com" }
+          {
+            key: 'Content-Security-Policy',
+            value:
+              "frame-ancestors 'self' https://experience.adobe.com https://*.adobe.com"
+          }
         ]
       }
     ];
