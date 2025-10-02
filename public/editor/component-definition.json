@@ -35,6 +35,44 @@
               }
             }
           }
+        },
+        {
+          "title": "Post Cards Container (CF)",
+          "id": "postcardscontainercf",
+          "model": "postcardscontainercf",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/post-cards-container",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
+                "name": "post-cards-container",
+                "title": "New Post Cards Container",
+                "template": { "title": "Posts title", "subtitle": "Posts subtitle" }
+              }
+            }
+          }
+        },
+        {
+          "title": "Post Card (CF)",
+          "id": "postcardcf",
+          "model": "postcardcf",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/post-card",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
+                "name": "post-card",
+                "title": "New Post Card",
+                "template": {
+                  "title": "Post card title",
+                  "description": "Post card description...",
+                  "linkLabel": "Post card link label",
+                  "linkUrl": "#",
+                  "altText": ""
+                }
+              }
+            }
+          }
         }
       ]
     }

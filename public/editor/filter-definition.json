@@ -1,3 +1,16 @@
 [
-  { "id": "cf-components", "components": ["textcf", "imagewithtextcf"] }
+  {
+    "id": "cf-components",
+    "components": [
+      "textcf",
+      "imagewithtextcf",
+      "postcardscontainercf"
+    ]
+  },
+  {
+    "id": "postcardscontainercf",
+    "components": [
+      "postcardcf"
+    ]
+  }
 ]

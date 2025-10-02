@@ -11,5 +11,50 @@
       { "component": "reference", "name": "imagePath", "label": "Image Path" },
       { "component": "text", "name": "altText", "label": "Alt Text" }
     ]
+  },
+  {
+  "id": "postcardscontainercf",
+  "fields": [
+    { "component": "text", "name": "title", "label": "Title" },
+    { "component": "text", "name": "subtitle", "label": "Subtitle" },
+    {
+      "component": "fragments",
+      "name": "items",
+      "label": "Cards",
+      "description": "Selecciona los Post Card a mostrar en el container",
+      "multiple": true,
+      "sortable": true,
+      "model": "postcardcf",
+      "folder": "/content/dam/oshynsite-headless/cfs",
+
+        "createInPlace": {
+          "cfModel": "/conf/oshynsite/settings/dam/cfm/models/post-card",
+          "cfFolder": "/content/dam/oshynsite-headless/cfs",
+          "name": "post-card",
+          "title": "New Post Card"
+        },
+        "picker": {
+          "type": "content-fragment",
+          "filters": {
+            "models": ["/conf/oshynsite/settings/dam/cfm/models/post-card"]
+          }
+        },
+        "validation": {
+          "minItems": 0,
+          "maxItems": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": "postcardcf",
+    "fields": [
+      { "component": "reference", "name": "imagePath", "label": "Image Path" },
+      { "component": "text", "name": "altText", "label": "Alt Text" },
+      { "component": "text", "name": "title", "label": "Title" },
+      { "component": "richtext", "name": "description", "label": "Description" },
+      { "component": "text", "name": "linkLabel", "label": "Link Label" },
+      { "component": "text", "name": "linkUrl", "label": "Link URL" }
+    ]
   }
 ]
