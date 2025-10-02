@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { ReactNode } from "react";
+import "./globals.css";
 
 const AEM_UE_HOST = process.env.NEXT_PUBLIC_AEM_UE_HOST ?? "";
 
@@ -35,9 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           src="/editor/filter-definition.json?v=4"
         />
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
