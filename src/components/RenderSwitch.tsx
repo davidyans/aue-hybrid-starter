@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import TextCF from "@/components/TextCF";
 import ImageWithTextCF from "@/components/ImageWithTextCF";
 import PostCardsContainer from "@/components/PostCardsContainer";
