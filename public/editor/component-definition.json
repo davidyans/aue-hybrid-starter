@@ -11,8 +11,8 @@
           "plugins": {
             "aem": {
               "cf": {
-                "cfModel": "/conf/wknd/settings/dam/cfm/models/text-model",
-                "cfFolder": "/content/dam/wknd/cfs",
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/text",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
                 "name": "text-cf",
                 "title": "New Text",
                 "template": { "text": "Lorem ipsum..." }
@@ -27,11 +27,49 @@
           "plugins": {
             "aem": {
               "cf": {
-                "cfModel": "/conf/wknd/settings/dam/cfm/models/image-with-text-model",
-                "cfFolder": "/content/dam/wknd/cfs",
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/image-with-text",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
                 "name": "imagewithtext-cf",
                 "title": "New Image with Text",
                 "template": { "altText": "" }
+              }
+            }
+          }
+        },
+        {
+          "title": "Post Cards Container (CF)",
+          "id": "postcardscontainercf",
+          "model": "postcardscontainercf",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/post-cards-container",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
+                "name": "post-cards-container",
+                "title": "New Post Cards Container",
+                "template": { "title": "Posts title", "subtitle": "Posts subtitle" }
+              }
+            }
+          }
+        },
+        {
+          "title": "Post Card (CF)",
+          "id": "postcardcf",
+          "model": "postcardcf",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "cfModel": "/conf/oshynsite/settings/dam/cfm/models/post-card",
+                "cfFolder": "/content/dam/oshynsite-headless/cfs",
+                "name": "post-card",
+                "title": "New Post Card",
+                "template": {
+                  "title": "Post card title",
+                  "description": "Post card description...",
+                  "linkLabel": "Post card link label",
+                  "linkUrl": "#",
+                  "altText": ""
+                }
               }
             }
           }

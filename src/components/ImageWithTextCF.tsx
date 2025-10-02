@@ -1,6 +1,5 @@
-import { ImageWithTextCF as ImageWithTextCFType } from "@/lib/aem-graphql";
+import { ImageWithTextCF as ImageWithTextCFType } from "@/services/graphql";
 import Image from "next/image";
-
 const assetSrc = (p?: string) =>
   p ? `/api/aem-asset?path=${encodeURIComponent(p)}` : "";
 
