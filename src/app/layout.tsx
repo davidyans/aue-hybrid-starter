@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import EditorScripts from "../components/EditorScripts";
+import "./globals.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
