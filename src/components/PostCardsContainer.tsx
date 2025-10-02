@@ -13,7 +13,7 @@ export default function PostCardsContainer({ item }: { item: Container }) {
   return (
     <section
       data-aue-resource={aue}
-      data-aue-type="container"
+      data-aue-type="reference"
       data-aue-filter="postcardscontainercf"
       data-aue-label="Post Cards Container"
       data-aue-model="postcardscontainercf"
