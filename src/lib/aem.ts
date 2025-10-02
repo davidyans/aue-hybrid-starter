@@ -10,7 +10,7 @@ function buildAuthHeader(): string {
     const p = process.env.AEM_PASSWORD ?? 'admin';
     return `Basic ${Buffer.from(`${u}:${p}`).toString('base64')}`;
   }
-  // bearer (LDAT)
+  // bearer (LDAT) 
   const token = process.env.AEM_TOKEN;
   if (!token) {
     throw new Error('AEM_TOKEN not defined.');

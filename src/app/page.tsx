@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ContainerCF from "@/components/ContainerCF";
 import RenderSwitch from "@/components/RenderSwitch";
 import { fetchComponentListItems } from "@/services/graphql";
