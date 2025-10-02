@@ -30,7 +30,7 @@ function buildAuthHeader(): string | undefined {
  * Trae el JSON de un recurso (profundidad configurable).
  * depth=1 => .json, depth=2 => .2.json (incluye hijos inmediatos), etc.
  */
-export async function fetchResourceJson(jcrPath: string, depth = 1): Promise<any> {
+export async function fetchResourceJson(jcrPath: string, depth = 1): Promise<unknown> {
   const httpPath = toHttpPath(jcrPath);
   const suffix = depth > 1 ? `.${depth}.json` : `.json`;
   const url = `${AEM_HOST}${httpPath}${suffix}`;
@@ -53,6 +53,6 @@ export async function fetchResourceJson(jcrPath: string, depth = 1): Promise<any
   return res.json();
 }
 
-export async function fetchComponentJson(jcrPath: string): Promise<any> {
+export async function fetchComponentJson(jcrPath: string): Promise<unknown> {
   return fetchResourceJson(jcrPath, 1);
 }

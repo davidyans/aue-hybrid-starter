@@ -1,12 +1,12 @@
 type Props = {
   path: string;
   id?: string;
-  node?: any;
+  node?: { [key: string]: unknown };
 };
 
 export default function Unknown({ path, id, node }: Props) {
   const aueResource = `urn:aemconnection:${path}`;
-  const rt = node?.["sling:resourceType"] || "unknown";
+  const rt = (node?.["sling:resourceType"] as string) || "unknown";
 
   return (
     <div

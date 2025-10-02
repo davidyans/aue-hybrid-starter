@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type Props = {
   path: string;
   filterId?: string; // Del filter-definition.json
@@ -16,12 +17,12 @@ export default async function Container({
   const data = await fetchResourceJson(path, 2);
 
   // Solo hijos que sean objetos "nodo" (no arrays) y tengan sling:resourceType
-    const children = Object.entries<any>(data).filter(([key, val]) => {
-        if (!val || typeof val !== "object" || Array.isArray(val)) return false;
-        if (key.startsWith(":") || key.startsWith("jcr:")) return false;
-        if (key === "cq:responsive" || key === "cq:styleIds") return false;
-        return typeof val["sling:resourceType"] === "string";
-    });
+  const children = Object.entries<any>(data as Record<string, any>).filter(([key, val]) => {
+      if (!val || typeof val !== "object" || Array.isArray(val)) return false;
+      if (key.startsWith(":") || key.startsWith("jcr:")) return false;
+      if (key === "cq:responsive" || key === "cq:styleIds") return false;
+      return typeof val["sling:resourceType"] === "string";
+  });
 
   console.log(
     "Container children:",
@@ -62,16 +63,22 @@ export default async function Container({
             );
         }
 
-        const Comp = resolveComponent(resourceType);
+        type ComponentProps = {
+          id: string;
+          path: string;
+          html?: string;
+          node: Record<string, unknown>;
+        };
+        const Comp = resolveComponent(resourceType) as React.ComponentType<ComponentProps>;
         const html = typeof node?.text === "string" ? node.text : "";
 
         return (
             <Comp
-            key={childPath}
-            id={name}
-            path={childPath}
-            html={html}
-            node={node}
+              key={childPath}
+              id={name}
+              path={childPath}
+              html={html}
+              node={node}
             />
         );
         })}
