@@ -75,7 +75,7 @@ export default function PostCard({ item }: { item: PostCard }) {
             <div
                 data-aue-prop="description"
                 data-aue-type="richtext"
-                dangerouslySetInnerHTML={{ __html: item.description.html }}
+                dangerouslySetInnerHTML={{ __html: item.description?.html || "" }}
             />
 
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ContainerCF from "@/components/ContainerCF";
 import RenderSwitch from "@/components/RenderSwitch";
 import { fetchComponentListItems } from "@/services/graphql";
@@ -5,7 +6,7 @@ import { fetchComponentListItems } from "@/services/graphql";
 export default async function Page() {
   const listPath = '/content/dam/oshynsite-headless/cfs/component-list-1';
 
-  let items = [];
+  let items: any[] = [];
   try {
     items = await fetchComponentListItems(listPath);
   } catch (err) {
