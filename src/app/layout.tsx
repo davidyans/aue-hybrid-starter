@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from "next";
 import Script from "next/script";
+
 import { ReactNode } from "react";
 
 const AEM_UE_HOST = process.env.NEXT_PUBLIC_AEM_UE_HOST ?? "";
