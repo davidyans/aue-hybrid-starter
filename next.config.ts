@@ -1,18 +1,23 @@
 import type { NextConfig } from "next";
 
+const csp = [
+  "frame-ancestors 'self'",
+  "https://experience.adobe.com",
+  "https://experience-stage.adobe.com",
+  "https://*.adobeaemcloud.com",
+  "https://*.aem.live",
+  "https://*.adobe.com",
+].join(" ");
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
-          {
-            key: 'Content-Security-Policy',
-            value:
-              "frame-ancestors 'self' https://experience.adobe.com https://*.adobe.com"
-          }
-        ]
-      }
+          { key: "Content-Security-Policy", value: `${csp};` },
+        ],
+      },
     ];
   },
 };
