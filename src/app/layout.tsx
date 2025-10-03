@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-sync-scripts */
+
 import type { Metadata } from "next";
 import Script from "next/script";
 import { ReactNode } from "react";
 import "./globals.css"; //test
-import { useSearchParams } from "next/navigation";
 
 const AEM_UE_HOST = process.env.NEXT_PUBLIC_AEM_UE_HOST ?? "";
 
@@ -13,9 +13,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  const searchParams = useSearchParams();
-  const isEditor = searchParams.get("aem-page-editor") === "true";
+type RootLayoutProps = {
+  children: ReactNode;
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function RootLayout({
+  children,
+  searchParams,
+}: RootLayoutProps) {
+  const isEditor = searchParams["aem-page-editor"] === "true";
   return (
     <html lang="en">
       <head>
