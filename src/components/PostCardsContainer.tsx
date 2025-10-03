@@ -13,7 +13,7 @@ export default function PostCardsContainer({ item }: { item: Container }) {
 
   return (
     <section
-      className="flex flex-wrap items-center bg-gray-100 rounded-lg shadow-md p-6 max-w-7xl w-full"
+      className="flex flex-wrap items-center bg-gray-100 rounded-lg shadow-md p-6 max-w-7xl w-full mb-5"
       data-aue-resource={aue}
       data-aue-type="reference"
       data-aue-filter="postcardscontainercf"

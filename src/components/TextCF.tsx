@@ -19,7 +19,7 @@ export default function TextCF({
   const html = item.text?.html ?? "";
 
   return (
-    <div className="flex flex-wrap items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full">
+    <div className="flex flex-wrap items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full mb-5">
       <div
         data-aue-resource={resource}
         data-aue-type="component"

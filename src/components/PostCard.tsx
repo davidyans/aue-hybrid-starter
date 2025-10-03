@@ -29,7 +29,7 @@ export default function PostCard({ item }: { item: PostCard }) {
 
   return (
     <article
-      className="bg-white rounded-lg shadow-md overflow-hidden"
+      className="bg-white rounded-lg shadow-md overflow-hidden mb-4"
       data-aue-resource={aue}
       data-aue-type="component"
       data-aue-label="Post Card"
