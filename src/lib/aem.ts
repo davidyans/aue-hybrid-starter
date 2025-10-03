@@ -45,7 +45,7 @@ export async function aemFetch<T>(
     headers,
     // @ts-expect-error Node fetch no tipa 'agent', pero en runtime funciona
     agent: maybeAgent(),
-    //cache: 'no-store'
+    cache: "no-store",
   });
 
   if (res.status === 401 || res.status === 403) {
