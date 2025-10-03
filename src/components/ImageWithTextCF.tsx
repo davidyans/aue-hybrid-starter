@@ -12,7 +12,7 @@ export default function ImageWithTextCF({
 
   return (
     <div
-      className="flex items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full"
+      className="flex items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full mb-5"
       data-aue-resource={resource}
       data-aue-type="component"
       data-aue-model="imagewithtextcf"
