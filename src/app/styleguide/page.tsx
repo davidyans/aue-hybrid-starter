@@ -34,7 +34,7 @@ const StyleGuide = () => {
         html: "<p>This is the description for the first post.</p>",
         plaintext: "This is the description for the first post.",
       },
-      image: { _path: "/first-post.jpg" },
+      imagePath: { _path: "/first-post.jpg" },
     },
     {
       _path: "/content/dam/wknd/cfs/post-2",
@@ -43,7 +43,7 @@ const StyleGuide = () => {
         html: "<p>This is the description for the second post.</p>",
         plaintext: "This is the description for the second post.",
       },
-      image: { _path: "/second-post.jpg" },
+      imagePath: { _path: "/second-post.jpg" },
     },
   ];
 
