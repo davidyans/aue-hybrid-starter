@@ -21,7 +21,11 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main data-aue-model="page" style={{ padding: 24 }}>
+    <main
+      data-aue-model="page"
+      style={{ padding: 24 }}
+      className="max-w-7xl mx-auto"
+    >
       <ContainerCF
         listPath={listPath}
         filterId="cf-components"
