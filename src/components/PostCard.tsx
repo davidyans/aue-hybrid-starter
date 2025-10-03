@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type Rich = { html?: string; plaintext?: string };
 type ImgRef = {
@@ -42,10 +43,13 @@ export default function PostCard({ item }: { item: PostCard }) {
         style={{ margin: 0 }}
       >
         {hasImage ? (
-          <img
+          <Image
             src={assetSrc(item.imagePath!._path)}
             alt={item.altText || item.title || ""}
             className="w-full h-48 object-cover"
+            width={500} // Assuming a common card width, adjust as needed
+            height={300} // Assuming a common card height, adjust as needed
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Example sizes, adjust based on your layout
           />
         ) : (
           <div

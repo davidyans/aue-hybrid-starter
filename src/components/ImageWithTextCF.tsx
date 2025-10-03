@@ -11,15 +11,14 @@ export default function ImageWithTextCF({
   const resource = `urn:aemconnection:${item._path}/jcr:content/data/master`;
 
   return (
-    <div className="flex items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full"
+    <div
+      className="flex items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full"
       data-aue-resource={resource}
       data-aue-type="component"
       data-aue-model="imagewithtextcf"
-      data-aue-label="Image with Text CF">
-      <figure
-
-        className="mr-6 flex-shrink-0"
-      >
+      data-aue-label="Image with Text CF"
+    >
+      <figure className="mr-6 flex-shrink-0">
         <div className="overflow-hidden rounded-full w-40 h-40 relative">
           {/* <Image
             src={assetSrc(item.imagePath?._path)}
@@ -32,10 +31,10 @@ export default function ImageWithTextCF({
             priority
           /> */}
           <Image
-            src={assetSrc(item.imagePath?._path) || "/globe.svg"}
-            alt={"alt"}
-            width={150}
-            height={150}
+            src={assetSrc(item.imagePath?._path) || "/globe.svg"} // Fallback to a default image if imagePath is not available
+            alt={item.altText || "Description of the image"} // Use altText from item or a more descriptive default
+            width={160} // Set a fixed width for better performance and layout stability
+            height={160} // Set a fixed height for better performance and layout stability
             sizes="160px"
             className="object-cover w-full h-full"
             data-aue-prop="imagePath"
