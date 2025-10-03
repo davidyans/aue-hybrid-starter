@@ -37,10 +37,10 @@ export async function fetchComponentListItems(
   const json = await aemFetch<any>(path, {
     method: "POST",
     body: JSON.stringify({ variables: { path: listPath } }),
-    next: {
-      // Revalidate the data every 1 minute (60 seconds)
-      revalidate: 60,
-    },
+    // next: {
+    //   // Revalidate the data every 1 minute (60 seconds)
+    //   revalidate: 60,
+    // },
   });
 
   const items: ComponentItem[] =
