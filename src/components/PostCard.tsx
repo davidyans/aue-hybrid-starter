@@ -93,6 +93,7 @@ export default function PostCard({ item }: { item: PostCard }) {
         />
 
         <Link
+          data-aue-prop="linkLabel"
           href={item.linkUrl || "#"}
           aria-label={item.linkLabel || item.title || ""}
           className="text-blue-500 hover:underline"
