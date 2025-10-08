@@ -92,14 +92,15 @@ export default function PostCard({ item }: { item: PostCard }) {
           dangerouslySetInnerHTML={{ __html: item.description?.html || "" }}
         />
 
-        <Link
-          data-aue-prop="linkLabel"
-          href={item.linkUrl || "#"}
-          aria-label={item.linkLabel || item.title || ""}
-          className="text-blue-500 hover:underline"
-        >
-          {item.linkLabel || "Read more"}
-        </Link>
+        {item.linkUrl && (
+          <Link
+            href={item.linkUrl}
+            aria-label={item.linkLabel || item.title || ""}
+            className="text-blue-500 hover:underline"
+          >
+            {item.linkLabel || "Read more"}
+          </Link>
+        )}
       </div>
     </article>
   );
