@@ -3,11 +3,13 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { ReactNode } from "react";
 
-const AEM_UE_HOST = process.env.NEXT_PUBLIC_AEM_UE_HOST ?? "";
+const AEM_UE_HOST = process.env.AEM_HOST ?? "";
+const AUE_SERVICE_URL = process.env.AUE_SERVICE_URL ?? "https://localhost:8000";
 
 export const metadata: Metadata = {
   other: {
     "urn:adobe:aue:system:aemconnection": `aem:${AEM_UE_HOST}`,
+    "urn:adobe:aue:config:service": AUE_SERVICE_URL,
   },
 };
 
@@ -35,9 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           src="/editor/filter-definition.json?v=4"
         />
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

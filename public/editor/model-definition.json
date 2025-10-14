@@ -1,6 +1,30 @@
 [
-    {
-      "id": "text",
-      "fields": [{ "component": "text", "name": "text", "label": "Text", "valueType": "string" }]
-    }
+  {
+    "id": "text",
+    "fields": [
+      {
+        "component": "text",
+        "name": "text",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "image",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "fileReference",
+        "label": "Image",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "alt",
+        "label": "Alt Text",
+        "valueType": "string"
+      }
+    ]
+  }
 ]
