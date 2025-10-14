@@ -1,4 +1,10 @@
-type Props = { path: string; id?: string; node?: any };
+type ImageNode = {
+  fileReference?: string;
+  alt?: string;
+  "jcr:title"?: string;
+};
+
+type Props = { path: string; id?: string; node?: ImageNode };
 
 export default function Image({ path, id, node }: Props) {
   const aueResource = `urn:aemconnection:${path}`;
