@@ -34,11 +34,11 @@ export default function PostCard({ item }: { item: PostCard }) {
       data-aue-type="component"
       data-aue-label="Post Card"
       data-aue-behavior="component"
-      data-aue-model="postcardmodel"
+      data-aue-model="postcardcf"
     >
       <figure
         data-aue-prop="imagePath"
-        data-aue-type="media"
+        data-aue-type="reference"
         data-aue-label="Image"
         style={{ margin: 0 }}
       >

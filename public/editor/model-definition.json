@@ -2,7 +2,7 @@
   {
     "id": "textcf",
     "fields": [
-      { "component": "richtext", "name": "text", "label": "Text" }
+      { "component": "richtext", "name": "text", "label": "Text", "valueType": "string" }
     ]
   },
   {
@@ -52,7 +52,7 @@
       { "component": "reference", "name": "imagePath", "label": "Image Path" },
       { "component": "text", "name": "altText", "label": "Alt Text" },
       { "component": "text", "name": "title", "label": "Title" },
-      { "component": "richtext", "name": "description", "label": "Description" },
+      { "component": "richtext", "name": "description", "label": "Description", "valueType": "string" },
       { "component": "text", "name": "linkLabel", "label": "Link Label" },
       { "component": "text", "name": "linkUrl", "label": "Link URL" }
     ]

@@ -19,20 +19,16 @@ export default function TextCF({
   const html = item.text?.html ?? "";
 
   return (
-    <div className="flex flex-wrap items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full mb-5"
+    <div className="flex flex-wrap items-center bg-white rounded-lg shadow-md p-6 max-w-3xl w-full mb-5 text-lg text-gray-700 w-full"
       data-aue-resource={resource}
-      data-aue-type="component"
+      data-aue-type="reference"
       data-aue-model="textcf"
       data-aue-label={label}>
-      <div
-        className="text-lg text-gray-700 w-full"
-      >
-        <Tag
-          data-aue-prop="text"
-          data-aue-type="richtext"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div>
-    </div>
+      <Tag
+        data-aue-prop="text"
+        data-aue-type="richtext"
+        dangerouslySetInnerHTML={{ __html: item.text?.html || "" }}
+      />
+    </div>  
   );
 }
